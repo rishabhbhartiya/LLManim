@@ -19,17 +19,17 @@ import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from manim import *
-from base.shapes import (
+from llmanim.base.shapes import (
     LabeledBlock, MathLabel,
     TOKEN_COLOR, EMBEDDING_COLOR, HIGHLIGHT_COLOR,
     DIM_COLOR, BACKGROUND_COLOR, ATTENTION_COLOR,
 )
-from base.animations import (
+from llmanim.base.animations import (
     highlight_sequence, fade_label,
     data_flow_arrow, equation_reveal,
 )
-from base.utils import apply_dark_theme, make_token_sequence
-from tokenization.token_box import (
+from llmanim.base.utils import apply_dark_theme, make_token_sequence
+from llmanim.tokenization.token_box import (
     RawTextDisplay, TokenBox, SpecialTokenBox,
     TokenRow, TokenSplitAnimation,
     VocabTable, ContextWindowBar, TokenIDMapping,

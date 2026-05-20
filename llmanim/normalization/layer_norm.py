@@ -59,13 +59,13 @@ from manim import (
     WHITE, ManimColor,
 )
 
-from manim_transformer.styles.colors import (
+from llmanim.styles.colors import (
     UI_COLORS, COMPONENT_COLORS,
 )
-from manim_transformer.styles.constants import (
+from llmanim.styles.constants import (
     TIMING, LAYOUT, NORM, MATRIX, TYPOGRAPHY as TY,
 )
-from manim_transformer.styles.fonts import (
+from llmanim.styles.fonts import (
     make_text, make_math, STYLE,
 )
 

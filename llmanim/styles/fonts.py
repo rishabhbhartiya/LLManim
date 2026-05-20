@@ -48,8 +48,8 @@ from __future__ import annotations
 from manim import Text, MathTex, Tex, VGroup
 from manim.utils.color import ManimColor
 
-from manim_transformer.styles.colors import UI_COLORS
-from manim_transformer.styles.constants import TYPOGRAPHY as T
+from llmanim.styles.colors import UI_COLORS
+from llmanim.styles.constants import TYPOGRAPHY as T
 
 
 # ---------------------------------------------------------------------------

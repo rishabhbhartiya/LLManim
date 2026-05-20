@@ -57,11 +57,11 @@ from manim import (
     RoundedRectangle, Brace, DashedLine,
 )
 
-from manim_transformer.styles.colors import (
+from llmanim.styles.colors import (
     UI_COLORS, SAMPLING_COLORS, COMPONENT_COLORS, TOKEN_PALETTE,
 )
-from manim_transformer.styles.constants import SAMPLING, TIMING, TOKEN, TYPOGRAPHY as TY
-from manim_transformer.styles.fonts import (
+from llmanim.styles.constants import SAMPLING, TIMING, TOKEN, TYPOGRAPHY as TY
+from llmanim.styles.fonts import (
     make_text, STYLE, label, caption, small, token_word, callout,
 )
 
