@@ -3,8 +3,9 @@ include LICENSE
 include CHANGELOG.md
 include CONTRIBUTING.md
 include pyproject.toml
-recursive-include manim_transformer *.py
+recursive-include llmanim *.py
 recursive-exclude tests *
 recursive-exclude examples *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
+recursive-exclude media *

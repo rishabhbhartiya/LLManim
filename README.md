@@ -1,13 +1,12 @@
 <div align="center">
 
-<img src="llmanim.svg" alt="LLManim" width="680" />
+<img src="https://raw.githubusercontent.com/rishabhbhartiya/LLManim/main/llmanim.svg" alt="LLManim" width="680" />
 
 
 **Reusable Manim components for creating LLM and Transformer explanation videos.**
 
 [![PyPI version](https://img.shields.io/pypi/v/llmanim.svg)](https://pypi.org/project/llmanim/)
 [![Python](https://img.shields.io/pypi/pyversions/llmanim.svg)](https://pypi.org/project/llmanim/)
-[![CI](https://github.com/rishabhbhartiya/LLManim/actions/workflows/ci.yml/badge.svg)](https://github.com/rishabhbhartiya/LLManim/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A Python library of pre-built visual components, animations, and utilities for creating educational videos about Large Language Models and Transformer architectures using [Manim](https://www.manim.community/).
@@ -108,23 +107,23 @@ Five complete video scripts are included in `examples/`:
 
 ### Video 1 — What is a Token?
 
-<img src="videos/WhatIsAToken.gif" alt="What is a Token?" width="720" />
+<img src="https://raw.githubusercontent.com/rishabhbhartiya/LLManim/main/videos/WhatIsAToken.gif" alt="What is a Token?" width="720" />
 
 ### Video 2 — Token Embeddings
 
-<img src="videos/TokenEmbeddings.gif" alt="Token Embeddings" width="720" />
+<img src="https://raw.githubusercontent.com/rishabhbhartiya/LLManim/main/videos/TokenEmbeddings.gif" alt="Token Embeddings" width="720" />
 
 ### Video 3 — Attention Mechanism
 
-<img src="videos/AttentionMechanism.gif" alt="Attention Mechanism" width="720" />
+<img src="https://raw.githubusercontent.com/rishabhbhartiya/LLManim/main/videos/AttentionMechanism.gif" alt="Attention Mechanism" width="720" />
 
 ### Video 4 — Multi-Head Attention
 
-<img src="videos/MultiHeadAttention.gif" alt="Multi-Head Attention" width="720" />
+<img src="https://raw.githubusercontent.com/rishabhbhartiya/LLManim/main/videos/MultiHeadAttention.gif" alt="Multi-Head Attention" width="720" />
 
 ### Video 5 — Full Forward Pass
 
-<img src="videos/FullForwardPass.gif" alt="Full Transformer Forward Pass" width="720" />
+<img src="https://raw.githubusercontent.com/rishabhbhartiya/LLManim/main/videos/FullForwardPass.gif" alt="Full Transformer Forward Pass" width="720" />
 
 ```bash
 # Clone to access examples (they're not installed with pip)

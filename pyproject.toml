@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "llmanim"
@@ -47,7 +47,7 @@ Changelog = "https://github.com/rishabhbhartiya/LLManim/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["llmanim*"]
+include = ["manim_transformer*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
