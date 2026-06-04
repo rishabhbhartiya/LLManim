@@ -1,7 +1,7 @@
 """
-manim_transformer/base/animations.py
+llmanim/base/animations.py
 =====================================
-Reusable animation functions for the manim_transformer library.
+Reusable animation functions for the llmanim library.
 These are standalone functions (not classes) — call them inside self.play().
 
 Every function returns an Animation or AnimationGroup so you can:
@@ -10,7 +10,7 @@ Every function returns an Animation or AnimationGroup so you can:
     self.play(highlight_sequence([box1, box2, box3]))
 
 Usage:
-    from manim_transformer.base.animations import (
+    from llmanim.base.animations import (
         flow_through, matrix_multiply_anim, highlight_sequence,
         fade_label, pulse_glow, data_flow_arrow,
         morph_matrix, ripple_through, typewriter,
@@ -984,7 +984,7 @@ class AnimationsDemoScene(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND_COLOR
 
-        title = Text("manim_transformer — base animations", font_size=26, color=WHITE)
+        title = Text("llmanim — base animations", font_size=26, color=WHITE)
         self.play(Write(title))
         self.wait(0.4)
         self.play(title.animate.to_edge(UP).scale(0.8))

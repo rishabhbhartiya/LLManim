@@ -17,22 +17,22 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from manim import *
 import numpy as np
-from base.shapes import (
+from llmanim.base.shapes import (
     MatrixBox, VectorBar, LabeledBlock, SoftmaxCurve, MathLabel,
     TOKEN_COLOR, EMBEDDING_COLOR, ATTENTION_COLOR,
     FFN_COLOR, NORM_COLOR, OUTPUT_COLOR,KEY_COLOR,
     HIGHLIGHT_COLOR, DIM_COLOR, BACKGROUND_COLOR, 
 )
-from base.animations import (
+from llmanim.base.animations import (
     data_flow_arrow, forward_pass_pulse, layer_stack_anim,
     highlight_sequence, pulse_glow, zoom_into,
     token_stream_anim, equation_reveal,
 )
-from base.utils import (
+from llmanim.base.utils import (
     apply_dark_theme, make_sample_logits,
     make_token_sequence, softmax, step_log,
 )
-from tokenization.token_box import (
+from llmanim.tokenization.token_box import (
     TokenRow, TokenBox, SpecialTokenBox, _token_color,
 )
 
@@ -139,7 +139,7 @@ class FullForwardPass(Scene):
             AnimationGroup(*[v.pulse(color=NORM_COLOR) for v in emb_vecs], lag_ratio=0.1)
         )
         self.wait(0.5)
-        self.play(*[FadeOut(m) for m in [tok_row, emb_mat, emb_lbl, emb_vecs, a1, pe_note]])
+        # _step_banner for Step 4 will wipe remaining mobjects
 
         # ── Step D: Transformer Block ─────────────
         self._step_banner(self, "Step 4  ·  Transformer Block (×N)", ATTENTION_COLOR)
@@ -181,7 +181,7 @@ class FullForwardPass(Scene):
         # forward pass pulse through block
         self.play(forward_pass_pulse(blk_mobs, pulse_color=HIGHLIGHT_COLOR, lag=0.15))
         self.wait(1.0)
-        self.play(*[FadeOut(m) for m in blk_mobs + [residual, res_lbl, n_badge]])
+        # _step_banner for Step 5 will wipe remaining mobjects
 
         # ── Step E: Output head + Softmax ─────────
         self._step_banner(self, "Step 5  ·  Output Logits + Sampling", OUTPUT_COLOR)
@@ -208,7 +208,7 @@ class FullForwardPass(Scene):
         self.play(FadeIn(sampled))
         self.play(pulse_glow(sampled, color=HIGHLIGHT_COLOR))
         self.wait(0.8)
-        self.play(*[FadeOut(m) for m in [sc, sc_lbl, sample_arrow, sampled]])
+        # _step_banner for autoregressive loop will wipe remaining mobjects
 
         # ══════════════════════════════════════════
         # SCENE 4 — Autoregressive generation loop
@@ -343,7 +343,8 @@ class FullForwardPass(Scene):
     # ─────────────────────────────────────────────
     @staticmethod
     def _step_banner(scene: Scene, text: str, color: str) -> None:
-        """Flash a step label at the top of the screen."""
+        """Wipe the screen, then flash a step label at the top."""
+        scene.play(*[FadeOut(m) for m in scene.mobjects])
         banner = Text(text, font_size=20, color=color, weight=BOLD)
         banner.to_edge(UP).shift(DOWN * 0.2)
         scene.play(FadeIn(banner, shift=DOWN * 0.1), run_time=0.35)

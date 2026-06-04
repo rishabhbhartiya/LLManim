@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "llmanim"
+version = "0.1.0"
+description = "Reusable Manim components for creating LLM and Transformer explanation videos."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Rishabh Bhartiya", email = "rishabh.bhartiya.in@gmail.com" }
+]
+keywords = ["manim", "transformer", "llm", "animation", "deep-learning", "education"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Video",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "manim>=0.18.0",
+    "numpy>=1.21.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "black",
+    "ruff",
+]
+
+[project.urls]
+Homepage = "https://github.com/rishabhbhartiya/LLManim"
+Repository = "https://github.com/rishabhbhartiya/LLManim"
+"Bug Tracker" = "https://github.com/rishabhbhartiya/LLManim/issues"
+Changelog = "https://github.com/rishabhbhartiya/LLManim/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["llmanim*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.ruff]
+line-length = 88

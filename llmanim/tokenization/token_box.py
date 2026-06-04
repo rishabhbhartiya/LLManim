@@ -1,5 +1,5 @@
 """
-manim_transformer/tokenization/token_box.py
+llmanim/tokenization/token_box.py
 ============================================
 Every visual asset needed to animate the tokenization stage of an LLM.
 

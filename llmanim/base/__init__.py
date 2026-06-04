@@ -1,5 +1,5 @@
 """
-manim_transformer/base/__init__.py
+llmanim/base/__init__.py
 """
 from .utils import (
     # math

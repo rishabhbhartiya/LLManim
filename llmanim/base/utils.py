@@ -1,7 +1,7 @@
 """
-manim_transformer/base/utils.py
+llmanim/base/utils.py
 ================================
-Pure utility helpers for the manim_transformer library.
+Pure utility helpers for the llmanim library.
 No Manim scene or animation logic here — only:
   • Math helpers   (softmax, scaled dot-product, positional encoding, etc.)
   • Layout helpers (auto-arrange, grid positions, bounding-box arithmetic)
@@ -12,7 +12,7 @@ No Manim scene or animation logic here — only:
   • Logging        (scene step printer, shape inspector)
 
 Usage:
-    from manim_transformer.base.utils import (
+    from llmanim.base.utils import (
         softmax, scaled_dot_product,
         value_to_color, heatmap_color,
         grid_positions, auto_arrange_row,
@@ -1120,7 +1120,7 @@ def print_quality_hint(preset: str = "preview") -> None:
 
 
 # ─────────────────────────────────────────────────────────────
-# Quick self-test  (python -m manim_transformer.base.utils)
+# Quick self-test  (python -m llmanim.base.utils)
 # ─────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":

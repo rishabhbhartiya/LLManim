@@ -19,20 +19,20 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from manim import *
 import numpy as np
-from base.shapes import (
+from llmanim.base.shapes import (
     MatrixBox, VectorBar, TokenBox, LabeledBlock, MathLabel,
     TOKEN_COLOR, EMBEDDING_COLOR, HIGHLIGHT_COLOR,
     QUERY_COLOR, DIM_COLOR, BACKGROUND_COLOR,
 )
-from base.animations import (
+from llmanim.base.animations import (
     highlight_sequence, data_flow_arrow,
     vector_addition_anim, equation_reveal, label_appear,
 )
-from base.utils import (
+from llmanim.base.utils import (
     apply_dark_theme, make_embedding_matrix,
     make_token_sequence, DEMO_VOCAB, fmt_num,
 )
-from tokenization.token_box import (
+from llmanim.tokenization.token_box import (
     TokenRow, TokenIDMapping, _token_color,
 )
 
@@ -154,10 +154,7 @@ class TokenEmbeddings(Scene):
         ).to_edge(DOWN).shift(UP * 0.2)
         self.play(FadeIn(note))
         self.wait(1.2)
-        self.play(*[FadeOut(m) for m in [
-            emb_mat, row_brace, col_brace, row_lbl, col_lbl,
-            mat_label, tok_box, arrow1, arrow2, vec, note, sol,
-        ]])
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 5 — What do the dimensions mean?
@@ -200,7 +197,7 @@ class TokenEmbeddings(Scene):
                          color=QUERY_COLOR).to_edge(DOWN).shift(UP * 0.2)
         self.play(FadeIn(diff_note))
         self.wait(1.2)
-        self.play(*[FadeOut(m) for m in vec_mobs + [dim_lbl, diff_note]])
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 6 — Famous analogy: king - man + woman

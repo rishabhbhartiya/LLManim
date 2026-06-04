@@ -1,24 +1,43 @@
-# Manim output
-media/
-
-# Python cache
+# Python
 __pycache__/
-*.pyc
 *.py[cod]
 *.pyo
-
-# Package build
+*.pyd
+*.egg
 *.egg-info/
-build/
 dist/
+build/
 .eggs/
+.venv/
+venv/
+env/
 
-# IDE
+# Manim output
+media/
+images/
+partial_movie_files/
+Tex/
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Type checkers
+.mypy_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# OS
-.DS_Store
-Thumbs.db
+# Build artifacts
+*.whl
+*.tar.gz

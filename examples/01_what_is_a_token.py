@@ -114,7 +114,7 @@ class WhatIsAToken(Scene):
         ).to_edge(DOWN).shift(UP * 0.2)
         self.play(FadeIn(note))
         self.wait(1.2)
-        self.play(FadeOut(note), FadeOut(word_row))
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 5 — Subword tokenisation
@@ -144,7 +144,7 @@ class WhatIsAToken(Scene):
         ).to_edge(DOWN).shift(UP * 0.2)
         self.play(FadeIn(note2))
         self.wait(1.5)
-        self.play(FadeOut(note2), FadeOut(sub_label))
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 6 — Special tokens
@@ -169,7 +169,7 @@ class WhatIsAToken(Scene):
             self.wait(0.5)
             self.play(sp.hide_tooltip(), run_time=0.2)
 
-        self.play(FadeOut(spec_row), FadeOut(spec_label), FadeOut(sub_row))
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 7 — Token → Integer ID
@@ -193,7 +193,7 @@ class WhatIsAToken(Scene):
             self.wait(0.1)
 
         self.wait(0.8)
-        self.play(FadeOut(mappings), FadeOut(id_label))
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 8 — Context window
@@ -214,7 +214,7 @@ class WhatIsAToken(Scene):
         for _ in range(7):
             ctx.fill_next(self)
         self.wait(0.5)
-        self.play(FadeOut(ctx), FadeOut(usage), FadeOut(ctx_label))
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 9 — Summary

@@ -1,5 +1,5 @@
 """
-manim_transformer/styles/constants.py
+llmanim/styles/constants.py
 =======================================
 Scene-wide constants for every Transformer/LLM animation asset.
 
@@ -8,7 +8,7 @@ re-themes the whole library consistently.
 
 Usage
 -----
-from manim_transformer.styles.constants import (
+from llmanim.styles.constants import (
     # pick what you need
     SCENE, TIMING, LAYOUT, MATRIX, TOKEN,
     ATTENTION, EMBEDDING, FFN, SAMPLING,
@@ -387,7 +387,7 @@ except ImportError:
 
 
 # ---------------------------------------------------------------------------
-# QUICK REFERENCE  (python -m manim_transformer.styles.constants)
+# QUICK REFERENCE  (python -m llmanim.styles.constants)
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
@@ -409,7 +409,7 @@ if __name__ == "__main__":
     }
 
     print("=" * 60)
-    print("  manim_transformer  —  Constants Reference")
+    print("  llmanim  —  Constants Reference")
     print("=" * 60)
 
     for ns_name, ns in namespaces.items():

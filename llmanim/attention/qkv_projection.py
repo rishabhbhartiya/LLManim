@@ -1,5 +1,5 @@
 """
-manim_transformer/attention/qkv_projection.py
+llmanim/attention/qkv_projection.py
 =============================================
 Reusable Manim assets for visualizing the QKV projection step
 in Transformer attention.
@@ -14,7 +14,7 @@ LinearLayerAnim      — node-graph + matrix form of one linear layer
 
 Usage (quick-start)
 -------------------
-    from manim_transformer.attention.qkv_projection import (
+    from llmanim.attention.qkv_projection import (
         InputMatrix, WeightMatrix, ProjectionAnim, QKVDisplay, LinearLayerAnim,
     )
 

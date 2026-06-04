@@ -1,14 +1,14 @@
 """
-manim_transformer/styles/colors.py
+llmanim/styles/colors.py
 ====================================
 Central color palette for all Transformer/LLM animation assets.
 
 Usage
 -----
-from manim_transformer.styles.colors import COLORS, get_color, component_color
+from llmanim.styles.colors import COLORS, get_color, component_color
 
 Or import specific palettes:
-from manim_transformer.styles.colors import (
+from llmanim.styles.colors import (
     COMPONENT_COLORS,
     MATH_COLORS,
     TOKEN_PALETTE,
@@ -329,12 +329,12 @@ def _lerp_hex(hex_a: str, hex_b: str, t: float) -> str:
 
 
 # ---------------------------------------------------------------------------
-# QUICK REFERENCE  (run ``python -m manim_transformer.styles.colors``)
+# QUICK REFERENCE  (run ``python -m llmanim.styles.colors``)
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("  manim_transformer  —  Color Palette Reference")
+    print("  llmanim  —  Color Palette Reference")
     print("=" * 60)
 
     sections = {

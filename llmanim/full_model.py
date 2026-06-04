@@ -3,7 +3,7 @@ full_model.py
 ==============
 Top-level composer assets for visualising a complete Transformer / LLM.
 
-This file sits at the top of the manim_transformer asset hierarchy.
+This file sits at the top of the llmanim asset hierarchy.
 It imports from every sublayer module and assembles them into bird's-eye-view
 visuals that show the whole model at once.
 

@@ -18,21 +18,21 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from manim import *
 import numpy as np
-from base.shapes import (
+from llmanim.base.shapes import (
     MatrixBox, VectorBar, LabeledBlock, MathLabel,
     ATTENTION_COLOR, QUERY_COLOR, KEY_COLOR, VALUE_COLOR,
     HIGHLIGHT_COLOR, DIM_COLOR, BACKGROUND_COLOR,
     TOKEN_COLOR, EMBEDDING_COLOR, FFN_COLOR,
 )
-from base.animations import (
+from llmanim.base.animations import (
     data_flow_arrow, pulse_glow, layer_stack_anim,
     label_appear, highlight_sequence,
 )
-from base.utils import (
+from llmanim.base.utils import (
     apply_dark_theme, make_attention_weights,
     attention_palette,
 )
-from tokenization.token_box import _token_color
+from llmanim.tokenization.token_box import _token_color
 
 
 HEAD_COLORS = [
@@ -135,9 +135,7 @@ class MultiHeadAttention(Scene):
         ).to_edge(DOWN).shift(UP * 0.3)
         self.play(Write(math_note))
         self.wait(1.0)
-        self.play(*[FadeOut(m) for m in [
-            full_vec, *head_vecs, split_arrows, math_note, split_lbl
-        ]])
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 4 — Each head runs independently
@@ -187,7 +185,7 @@ class MultiHeadAttention(Scene):
         ).to_edge(DOWN).shift(UP * 0.2)
         self.play(FadeIn(patterns_note))
         self.wait(1.2)
-        self.play(*[FadeOut(m) for m in head_blocks + heatmaps + [indep_lbl, patterns_note]])
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 5 — Concatenate all head outputs

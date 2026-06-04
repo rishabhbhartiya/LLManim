@@ -1,5 +1,5 @@
 """
-manim_transformer/styles/fonts.py
+llmanim/styles/fonts.py
 ===================================
 Typography system for all Transformer/LLM animation assets.
 
@@ -30,7 +30,7 @@ Install (Linux / macOS with pip-installed manim):
 
 Usage
 -----
-from manim_transformer.styles.fonts import (
+from llmanim.styles.fonts import (
     FONTS,
     STYLE,
     title, heading, subheading,
@@ -433,7 +433,7 @@ def component_badge(name: str, color: ManimColor | str) -> VGroup:
 
     Example
     -------
-    >>> from manim_transformer.styles.colors import COMPONENT_COLORS
+    >>> from llmanim.styles.colors import COMPONENT_COLORS
     >>> badge = component_badge("FFN", COMPONENT_COLORS["ffn"])
     >>> self.add(badge)
     """
@@ -474,7 +474,7 @@ def sub_label(main: str, sub: str, main_style: dict | None = None) -> VGroup:
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("  manim_transformer  —  Font Reference")
+    print("  llmanim  —  Font Reference")
     print("=" * 60)
 
     print("\n  Font Families  (FONTS.*)")

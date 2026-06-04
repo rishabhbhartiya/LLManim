@@ -1,5 +1,5 @@
 """
-manim_transformer/output/logits_sampling.py
+llmanim/output/logits_sampling.py
 =============================================
 Reusable Manim assets for the OUTPUT stage of a Transformer:
 
@@ -21,7 +21,7 @@ Design principles
 Usage example
 -------------
     from manim import *
-    from manim_transformer.output.logits_sampling import (
+    from llmanim.output.logits_sampling import (
         LogitsBar, TemperatureAnim, TopKFilter,
         TopPFilter, TokenSelectionAnim, KVCacheAnim,
     )

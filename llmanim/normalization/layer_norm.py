@@ -1,5 +1,5 @@
 """
-manim_transformer/normalization/layer_norm.py
+llmanim/normalization/layer_norm.py
 ==============================================
 Reusable Manim assets for the NORMALIZATION stage of a Transformer.
 
@@ -26,7 +26,7 @@ Design principles
 Quick usage
 -----------
     from manim import *
-    from manim_transformer.normalization.layer_norm import (
+    from llmanim.normalization.layer_norm import (
         LayerNormBlock, ResidualAnim, PreVsPostNormCompare, RMSNormBlock,
     )
 

@@ -17,28 +17,29 @@ Run:
 """
 
 import sys, os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "manim_transformer"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+
 
 from manim import *
 import numpy as np
-from base.shapes import (
+from llmanim.base.shapes import (
     MatrixBox, VectorBar, TokenBox, LabeledBlock,
     MathLabel, SoftmaxCurve,
     TOKEN_COLOR, EMBEDDING_COLOR, ATTENTION_COLOR,
     QUERY_COLOR, KEY_COLOR, VALUE_COLOR,
     HIGHLIGHT_COLOR, DIM_COLOR, BACKGROUND_COLOR,
 )
-from base.animations import (
+from llmanim.base.animations import (
     data_flow_arrow, highlight_sequence, equation_reveal,
     pulse_glow, label_appear, attention_flow, zoom_into,
     softmax_temperature_sweep,
 )
-from base.utils import (
+from llmanim.base.utils import (
     apply_dark_theme, scaled_dot_product, causal_mask,
     make_attention_weights, make_weight_matrix,
     attention_palette, softmax,
 )
-from tokenization.token_box import TokenRow, _token_color
+from llmanim.tokenization.token_box import TokenRow, _token_color
 
 
 class AttentionMechanism(Scene):
@@ -174,8 +175,7 @@ class AttentionMechanism(Scene):
             self.play(qm.fill_anim(lag=0.01), FadeIn(qkv_lbls[i]), run_time=0.35)
 
         self.wait(0.8)
-        fade_list = (w_mats + w_lbls + qkv_lbls + [X_mat, X_lbl, proj_label, seq_label, tok_row])
-        self.play(*[FadeOut(m) for m in fade_list])
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 6 — Dot product attention scores
@@ -214,10 +214,7 @@ class AttentionMechanism(Scene):
         self.play(FadeIn(scale_note))
         self.play(Write(sqrt_eq))
         self.wait(1.0)
-        self.play(*[FadeOut(m) for m in [
-            Q_mat, K_mat, Q_l, K_l, times_t, eq_t, S_l, score_label,
-            scale_note, sqrt_eq,
-        ]])
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 7 — Softmax → attention weights
@@ -251,7 +248,7 @@ class AttentionMechanism(Scene):
         ).to_edge(DOWN).shift(UP * 0.2)
         self.play(FadeIn(attn_note))
         self.wait(1.2)
-        self.play(*[FadeOut(m) for m in [sc, sc_lbl, soft_label, attn_note]])
+        self.play(*[FadeOut(m) for m in self.mobjects])
 
         # ══════════════════════════════════════════
         # SCENE 8 — Attention heatmap

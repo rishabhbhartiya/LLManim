@@ -1,7 +1,7 @@
 """
-manim_transformer/base/shapes.py
+llmanim/base/shapes.py
 =================================
-Reusable base shapes and mobjects for the manim_transformer library.
+Reusable base shapes and mobjects for the llmanim library.
 
 PATCH LOG
 ---------
@@ -802,7 +802,7 @@ class DemoScene(Scene):
     def construct(self):
         self.camera.background_color = BACKGROUND_COLOR
 
-        title = Text("manim_transformer — base shapes", font_size=28, color=WHITE)
+        title = Text("llmanim — base shapes", font_size=28, color=WHITE)
         self.play(Write(title))
         self.play(title.animate.to_edge(UP))
 

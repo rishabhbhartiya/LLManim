@@ -1,0 +1,305 @@
+# API Reference
+
+
+## __init__.py
+
+## attention/__init__.py
+
+## attention/attention_output.py
+  class WeightedSumAnim(VGroup): __init__, _build_weight_bars, _build_value_matrix, _build_output_vector, _build_labels, _arrange_layout, build_anim, highlight_output, fade_out_internals
+  class AttentionOutputVector(VGroup): __init__, _build_vector_display, _build_contribution_bars, _arrange, build_anim, highlight_top_contributor, connect_to
+  class SingleHeadSummary(VGroup): __init__, _make_stage_box, _build_stages, _build_arrows, _build_dim_labels, build_anim, highlight_stage, expand_stage, connect_to
+  class DemoScene(Scene): construct
+  def _hex(key: str)
+  def _lerp_color(c1: str, c2: str, t: float)
+  def _value_to_color(v: float, lo: float=-1.0, hi: float=1.0)
+  def _make_cell(value: float, width: float=0.45, height: float=0.45, show_val: bool=True, font_size: int=14)
+  def _make_vector(values: Sequence[float], direction: str='horizontal', cell_w: float=0.45, cell_h: float=0.45, show_val: bool=True, font_size: int=14)
+
+## attention/attention_score.py
+  class DotProductAnim(VGroup): __init__, _make_row, _build, build_anim, highlight_score, connect_to
+  class ScoreMatrix(VGroup): __init__, _score_col, _build, build_anim, highlight_cell, highlight_row, highlight_col, get_cell
+  class ScalingAnim(VGroup): __init__, _matrix_mob, _build, build_anim, show_before_after
+  class CausalMask(VGroup): __init__, _build, build_anim, unmask_cell, highlight_diagonal
+  class SoftmaxAnim(VGroup): __init__, _softmax, _bar_chart, _build, build_anim, show_temperature_effect
+  class AttentionHeatmap(VGroup): __init__, _build, build_anim, annotate_cell, highlight_row, highlight_col, connect_from
+  class DemoScene(Scene): construct
+  def _hex(key: str)
+  def _lerp(c1: str, c2: str, t: float)
+  def _score_color(score: float, lo: float=-4.0, hi: float=4.0)
+  def _prob_color(p: float)
+  def _cell(value: float, color_fn, w: float=0.52, h: float=0.52, font_size: int=13, show_val: bool=True, fmt: str='{:+.2f}')
+
+## attention/multi_head.py
+  class HeadSplitAnim(VGroup): __init__, _build, build_anim, highlight_head, get_head_position
+  class MultiHeadGrid(VGroup): __init__, _single_heatmap, _build, build_anim, play_head, highlight_head, highlight_cell, get_head_group
+  class HeadConcatAnim(VGroup): __init__, _head_vec_mob, _build, build_anim, highlight_head_slice, get_concat_vec
+  class OutputProjectionAnim(VGroup): __init__, _color_block, _build, build_anim, highlight_output, connect_to
+  class HeadComparisonDisplay(VGroup): __init__, _single_head_card, _build, build_anim, highlight_head, zoom_to_head
+  class DemoScene(Scene): construct
+  def _hex(key: str)
+  def _lerp(c1: str, c2: str, t: float)
+  def _head_color(h_idx: int)
+  def _prob_color(p: float, h_idx: int=0)
+  def _seg_rect(width: float, height: float, color: ManimColor, label: str='', font_size: int=12, opacity: float=0.85)
+  def _softmax(scores: np.ndarray)
+  def _make_random_weights(seq_len: int, seed: int=0)
+
+## attention/qkv_projection.py
+  class InputMatrix(VGroup): __init__, _row_cells, highlight_row, dehighlight_row, extract_row_anim, build_in
+  class WeightMatrix(VGroup): __init__, _col_cells, highlight_col, dehighlight_col, pulse, build_in
+  class QKVDisplay(VGroup): __init__, _shade_cells, appear, highlight, show_values
+  class LinearLayerAnim(VGroup): __init__, build_in, forward_pass_pulse, show_matrix_equation
+  class ProjectionAnim: __init__, all_objects, build_in_animations, iter_row_highlight_animations, title_label
+  class ThreeProjectionLayout(VGroup): __init__, build_in, highlight, pulse_all
+  class DemoQKV(Scene): construct
+  def _make_cell(width: float, height: float, fill_color=_C['bg_cell'], stroke_color=_C['grid_stroke'], fill_opacity: float=0.85)
+  def _grid(rows: int, cols: int, cell_w: float=0.35, cell_h: float=0.35, fill_color=_C['bg_cell'], stroke_color=_C['grid_stroke'])
+  def _dim_brace(mob, direction, label: str, font_size: int=20, color=WHITE)
+
+## base/__init__.py
+
+## base/animations.py
+  class AnimationsDemoScene(Scene): construct
+  def flow_through(mob: Mobject, path: VMobject, run_time: float=1.2, fade_out: bool=True, rate_func=smooth)
+  def matrix_multiply_anim(A: MatrixBox, B: MatrixBox, C: MatrixBox, scene: Scene, row_color: str=QUERY_COLOR, col_color: str=KEY_COLOR, result_color: str=HIGHLIGHT_COLOR, cell_run_time: float=0.18, show_all_cells: bool=True)
+  def highlight_sequence(mobjects: list, color: str=HIGHLIGHT_COLOR, scale: float=1.2, lag: float=0.12, run_time: float=0.25)
+  def fade_label(text: str, position=ORIGIN, font_size: int=24, color: str=WHITE, is_latex: bool=False, hold_time: float=1.5, scene: Scene=None)
+  def pulse_glow(mob: Mobject, color: str=HIGHLIGHT_COLOR, n_pulses: int=2, max_scale: float=1.6, run_time: float=0.7)
+  def data_flow_arrow(start: Mobject | np.ndarray, end: Mobject | np.ndarray, label: str='', color: str=ARROW_COLOR, label_color: str=HIGHLIGHT_COLOR, curved: bool=False, run_time: float=0.6)
+  def morph_matrix(source: MatrixBox, target: MatrixBox, run_time: float=1.0)
+  def ripple_through(mobjects: list, wave_color: str=HIGHLIGHT_COLOR, base_color: str=DIM_COLOR, lag: float=0.08, run_time: float=0.2)
+  def typewriter(text: str, position=ORIGIN, color: str=WHITE, font_size: int=28, char_delay: float=0.07, scene: Scene=None)
+  def forward_pass_pulse(blocks: list, pulse_color: str=ATTENTION_COLOR, lag: float=0.15, run_time: float=0.35)
+  def attention_flow(token_boxes: list, attention_weights: np.ndarray, query_idx: int=0, color: str=ATTENTION_COLOR, min_opacity: float=0.1, max_stroke: float=4.0, scene: Scene=None)
+  def dimension_change_anim(mob: Mobject, new_width: float, new_height: float, label_before: str, label_after: str, scene: Scene, color: str=FFN_COLOR, run_time: float=0.8)
+  def equation_reveal(terms: list, position=ORIGIN, direction=RIGHT, color: str=WHITE, font_size: int=26, delay: float=0.5, scene: Scene=None)
+  def token_stream_anim(token_boxes: list, target_positions: list, slide_from=LEFT * 8, lag: float=0.1, run_time: float=0.4)
+  def layer_stack_anim(block_template: Mobject, n_layers: int=6, spacing: float=0.75, direction=UP, lag: float=0.12, color: str=ATTENTION_COLOR)
+  def vector_addition_anim(vec_a: VectorBar, vec_b: VectorBar, result: VectorBar, scene: Scene, plus_color: str=WHITE, run_time: float=0.8)
+  def softmax_temperature_sweep(softmax_curve, t_start: float=1.0, t_end: float=0.2, steps: int=8, scene: Scene=None, run_time_per_step: float=0.3)
+  def zoom_into(mob: Mobject, scene: Scene, scale: float=2.5, run_time: float=0.7, hold_time: float=1.0)
+  def label_appear(mob: Mobject, text: str, color: str=HIGHLIGHT_COLOR, font_size: int=16, direction=UP, buff: float=0.2)
+  def component_swap(old_mob: Mobject, new_mob: Mobject, run_time: float=0.6)
+
+## base/shapes.py
+  class MatrixBox(VGroup): __init__, _build, _cell, highlight_cell, highlight_row, highlight_col, reset_colors, fill_anim, extraction_anim, label_axes
+  class VectorBar(VGroup): __init__, pulse, highlight_dim, add_value_labels, transform_to
+  class TokenBox(VGroup): __init__, highlight, shake, fade_id, merge_with, split_into
+  class ArrowLabel(VGroup): __init__, draw, undraw
+  class DimensionBrace(VGroup): __init__, appear
+  class NumberFlow(VGroup): __init__, flow
+  class LabeledBlock(VGroup): __init__, highlight, expand_to
+  class MathLabel(VGroup): __init__, write, unwrite
+  class ConnectionLine(VGroup): __init__, draw, activate, pulse_all
+  class SoftmaxCurve(VGroup): __init__, _softmax, _build, set_temperature, highlight_bar, show_values
+  class DemoScene(Scene): construct
+
+## base/utils.py
+  def softmax(x: np.ndarray, temperature: float=1.0, axis: int=-1)
+  def scaled_dot_product(Q: np.ndarray, K: np.ndarray, V: np.ndarray, mask: np.ndarray | None=None, temperature: float=1.0)
+  def causal_mask(seq_len: int)
+  def sinusoidal_pe(seq_len: int, d_model: int)
+  def layer_norm(x: np.ndarray, eps: float=1e-05)
+  def gelu(x: np.ndarray)
+  def relu(x: np.ndarray)
+  def silu(x: np.ndarray)
+  def entropy(probs: np.ndarray)
+  def top_k_filter(logits: np.ndarray, k: int)
+  def top_p_filter(logits: np.ndarray, p: float=0.9)
+  def grid_positions(rows: int, cols: int, cell_w: float=1.0, cell_h: float=1.0, center: Sequence[float]=(0, 0, 0))
+  def auto_arrange_row(mobjects: list, buff: float=0.2, center: Sequence[float]=(0, 0, 0))
+  def stack_positions(mobjects: list, buff: float=0.15, direction: Sequence[float]=(0, 1, 0), center: Sequence[float]=(0, 0, 0))
+  def midpoint(a: np.ndarray, b: np.ndarray)
+  def lerp(a: np.ndarray, b: np.ndarray, t: float)
+  def bounding_box(mobjects: list)
+  def hex_to_rgb(hex_color: str)
+  def rgb_to_hex(r: float, g: float, b: float)
+  def lerp_color(color_a: str, color_b: str, t: float)
+  def value_to_color(value: float, v_min: float=-1.0, v_max: float=1.0, neg_color: str=_NEGATIVE_COLOR, zero_color: str='#1E1E2E', pos_color: str=_POSITIVE_COLOR)
+  def heatmap_color(value: float, v_min: float=0.0, v_max: float=1.0, cold: str='#1E1E2E', hot: str=_HIGHLIGHT_COLOR)
+  def opacity_for_value(value: float, v_min: float=0.0, v_max: float=1.0, min_opacity: float=0.05, max_opacity: float=0.95)
+  def attention_palette(weights: np.ndarray, base_color: str=_ATTENTION_COLOR)
+  def fmt_num(value: float, decimals: int=2, sci: bool=False)
+  def truncate_vector(values: np.ndarray, show: int=4)
+  def latex_matrix(values: np.ndarray, max_rows: int=4, max_cols: int=4, decimals: int=1)
+  def latex_vector(values: np.ndarray, max_show: int=5, decimals: int=2, label: str='')
+  def shape_label(arr: np.ndarray)
+  def wrap_text(text: str, width: int=40)
+  def ordinal(n: int)
+  def lag_schedule(n: int, style: str='linear', total_time: float=2.0)
+  def run_time_for_seq(seq_len: int, base: float=0.25, max_rt: float=4.0)
+  def per_item_run_time(total: float, n: int, min_rt: float=0.05)
+  def make_token_sequence(words: list[str] | None=None, add_special: bool=True)
+  def make_weight_matrix(rows: int, cols: int, seed: int | None=None, scale: float=0.1)
+  def make_attention_weights(seq_len: int, n_heads: int=1, causal: bool=True, seed: int | None=None)
+  def make_sample_logits(vocab_size: int=10, top_token: str='the', seed: int | None=None)
+  def make_embedding_matrix(vocab_size: int=20, d_model: int=16, seed: int | None=None)
+  def step_log(message: str, scene_name: str='scene', color: bool=True)
+  def inspect_shape(arr: np.ndarray, name: str='array')
+  def validate_attention_weights(weights: np.ndarray, tol: float=0.0001)
+  def assert_shape(arr: np.ndarray, expected: tuple, name: str='array')
+  def apply_dark_theme(scene)
+  def print_quality_hint(preset: str='preview')
+
+## blocks/__init__.py
+
+## blocks/transformer_block.py
+  class SubLayerBox(VGroup): __init__, get_top_center, get_bottom_center, appear, activate, deactivate, zoom_label, highlight_border
+  class _AddNode(VGroup): __init__, activate
+  class ResidualStream(VGroup): __init__, appear, animate_skip, animate_through
+  class TransformerBlockDiagram(VGroup): __init__, _build_residuals, appear_animation, flow_animation, highlight_sublayer, reset_opacity, zoom_into, zoom_out, compact_mode, get_box
+  class EncoderBlockAnim(TransformerBlockDiagram): __init__, narrate_self_attention, narrate_ffn
+  class DecoderBlockAnim(TransformerBlockDiagram): __init__, add_encoder_input, narrate_masked_attention, narrate_cross_attention
+  class GPTBlockAnim(TransformerBlockDiagram): __init__, annotate_prenorm, annotate_causal
+  class LayerStackAnim(VGroup): __init__, appear_animation, flow_through_animation, highlight_layer, reset_opacity, label_early_late_layers
+  class _SpanBox: __init__, get_top_center, get_bottom_center
+  class _CompactBlock(VGroup): __init__, flow_animation, deactivate
+
+## embeddings/__init__.py
+
+## embeddings/embedding_lookup.py
+  class EmbeddingMatrix(VGroup): __init__, dim_all_rows, highlight_row, extract_row, lookup_sequence
+  class TokenToVectorAnim(VGroup): __init__, build_animation
+  class VectorDisplay(VGroup): __init__, appear_animation, pulse, highlight_dims
+  class VectorSpaceViz(VGroup): __init__, appear_animation, draw_distance, draw_analogy_arrow, highlight_cluster
+  class EmbeddingAddition(VGroup): __init__, build_animation, highlight_column
+  def _value_to_color(value: float, v_min: float=-1.0, v_max: float=1.0)
+  def _dim_label(text: str, scale: float=LABEL_SCALE)
+  def _make_token_box(text: str, token_id: int)
+
+## embeddings/positional_encoding.py
+  class SineWaveDisplay(VGroup): __init__, appear_animation, highlight_wave, reset_highlight, mark_position
+  class PEMatrix(VGroup): __init__, appear_animation, highlight_row, highlight_col, reset_opacity, extract_row_vector
+  class PositionBadges(VGroup): __init__, appear_tokens, reveal_badges, build_animation, highlight_token
+  class PEAdditionAnim(VGroup): __init__, build_animation, highlight_column, reset_opacity
+  class _VecBar(VGroup): __init__, appear_anim
+  class RoPERotationAnim(VGroup): __init__, appear_animation, rotate_to_position, highlight_relative, side_by_side_comparison
+  def _pe_value(pos: int, dim: int, d_model: int)
+  def _pe_matrix(seq_len: int, d_model: int)
+  def _value_to_color(v: float)
+  def _small_text(s: str, color=LIGHT_GRAY)
+
+## feedforward/__init__.py
+
+## feedforward/ffn.py
+  class _DimBar(VGroup): __init__, appear_animation, pulse
+  class _TrapezoidArrow(VGroup): __init__, flow_pulse, appear_animation
+  class _ActivationBand(VGroup): __init__, appear_animation, fire_animation
+  class FFNBlock(VGroup): __init__, build_animation, animate_forward_pass, highlight_expansion, highlight_compression, swap_activation
+  class ActivationCurve(VGroup): __init__, appear_animation, highlight_curve, reset_highlight, mark_x
+  class NeuronFireAnim(VGroup): __init__, build_animation, place_below
+  class DimensionExpansionAnim(VGroup): __init__, build_animation, pulse_hidden, compare_ratio
+  class MoERouterAnim(VGroup): __init__, build_animation, highlight_selected, dim_unselected, reset_opacity
+  def _relu(x: float)
+  def _gelu(x: float)
+  def _silu(x: float)
+  def _txt(s: str, color=LIGHT_GRAY, scale: float=LABEL_SCALE)
+  def _dim_brace(mob, direction, label: str, color=LIGHT_GRAY)
+  def _rounded_box(label: str, color: str, w: float=1.2, h: float=0.46, fill_opacity: float=0.82)
+
+## full_model.py
+  class FullModelOverview(VGroup): __init__, _build_param_annotations, appear_animation, flow_animation, zoom_into, zoom_out, highlight_component, reset_opacity
+  class EndToEndAnim(VGroup): __init__, _build_logit_bars, build_animation, highlight_stage, reset_opacity
+  class InferenceLoopAnim(VGroup): __init__, appear_animation, fill_prompt, generate_step, full_generation_animation
+  class ModelComparisonTable(VGroup): __init__, _make_cell, appear_animation, highlight_row, highlight_col, reset_opacity
+  class ArchitectureSelector(VGroup): __init__, appear_animation, highlight_column, highlight_by_name, reset_opacity, annotate_task
+  def _txt(s: str, color=LIGHT_GRAY, scale: float=LABEL_SCALE)
+  def _component_box(label: str, color: str, width: float=3.2, height: float=0.6, fill_opacity: float=0.8, sublabel: str='')
+  def _flow_arrow(start_mob, end_mob, color=COLORS['arrow'])
+
+## normalization/__init__.py
+
+## normalization/layer_norm.py
+  class ValueDistributionBar(VGroup): __init__, get_values, _set_values_silent, animate_appear, animate_update, animate_mean_line, animate_std_brace
+  class MeanSubtractionAnim(VGroup): __init__, animate_show_mean, animate_subtract, animate_full, get_centered
+  class VarianceScaleAnim(VGroup): __init__, animate_show_spread, animate_divide, animate_full, get_normed
+  class GammaBetaAnim(VGroup): __init__, animate_show_params, animate_scale, animate_shift, animate_full, get_output
+  class LayerNormBlock(VGroup): __init__, get_output, animate_compact, animate_full_pass
+  class ResidualAnim(VGroup): __init__, animate_input, animate_sublayer, animate_skip, animate_add, animate_full
+  class PreVsPostNormCompare(VGroup): __init__, _build_flow, animate_left, animate_right, animate_full
+  class RMSNormBlock(VGroup): __init__, get_output, animate_compact, animate_full_pass
+  def _mean(v: list[float])
+  def _std(v: list[float], mu: float, eps: float=1e-05)
+  def _rms(v: list[float], eps: float=1e-05)
+  def _ln(v: list[float])
+  def _rms_norm(v: list[float])
+  def _broadcast(param: list[float] | float, n: int)
+  def _lerp_hex(a: str, b: str, t: float)
+  def _cell_color(value: float, vmax: float=4.0)
+
+## output/__init__.py
+
+## output/logits_sampling.py
+  class LogitsBar(VGroup): __init__, get_probs, get_tokens, animate_appear, animate_softmax, animate_highlight, animate_dim_except, animate_restore_all
+  class TemperatureAnim(VGroup): __init__, _t_to_x, _knob_color, get_tracker, animate_set_temperature, animate_sweep
+  class TopKFilter(VGroup): __init__, animate_filter, animate_renormalize, animate_full_pass
+  class TopPFilter(VGroup): __init__, animate_sort, animate_cumsum_line, animate_mark_nucleus, animate_full_pass
+  class TokenSelectionAnim(VGroup): __init__, _build_sequence_display, animate_sample_arrow, animate_token_fly, animate_full
+  class KVCacheAnim(VGroup): __init__, _make_slot, _build_speed_bar, animate_init, animate_cache_hit, animate_cache_write, animate_step, animate_speed_comparison
+  def _softmax(logits: list[float], temperature: float=1.0)
+  def _normalize(probs: list[float])
+  def _bar_color(prob: float)
+
+## styles/__init__.py
+
+## styles/colors.py
+  def _to_manim(hex_dict: dict)
+  def get_color(name: str)
+  def component_color(component: str)
+  def token_color(index: int)
+  def special_token_color(token_type: str)
+  def heatmap_color(attention_weight: float)
+  def value_color(value: float, vmin: float=-1.0, vmax: float=1.0)
+  def _hex_to_rgb(hex_color: str)
+  def _lerp_hex(hex_a: str, hex_b: str, t: float)
+
+## styles/constants.py
+
+## styles/fonts.py
+  class FONTS: all
+  class STYLE: 
+  def make_text(text: str, style: dict | None, color: ManimColor | str | None=None, font_size: int | None=None, font: str | None=None, **kwargs=None)
+  def make_code(text: str, color: ManimColor | str | None, **kwargs=None)
+  def make_math(latex: str, font_size: int, color: ManimColor | str | None=T.FORMULA, **kwargs=None)
+  def make_tex(latex: str, font_size: int, **kwargs=T.BODY)
+  def title(text: str, **kw)
+  def heading(text: str, **kw)
+  def subheading(text: str, **kw)
+  def body(text: str, **kw)
+  def caption(text: str, **kw)
+  def label(text: str, **kw)
+  def label_dim(text: str, **kw)
+  def small(text: str, **kw)
+  def code(text: str, **kw)
+  def token_word(text: str, **kw)
+  def token_id(text: str, **kw)
+  def matrix_val(text: str, **kw)
+  def dimension_label(text: str, **kw)
+  def formula(latex: str, **kw)
+  def formula_sm(latex: str, **kw)
+  def annotation(text: str, **kw)
+  def component_label(text: str, **kw)
+  def warning(text: str, **kw)
+  def callout(text: str, **kw)
+  def stacked_label(lines: list[str], styles: list[dict] | None=None, spacing: float=0.1, aligned_edge=None)
+  def component_badge(name: str, color: ManimColor | str)
+  def sub_label(main: str, sub: str, main_style: dict | None=None)
+
+## tokenization/__init__.py
+
+## tokenization/token_box.py
+  class RawTextDisplay(VGroup): __init__, _build, reveal_chars, reveal_words, highlight_word, highlight_range, dim_all, undim_all, strike_through, fade_to_tokens
+  class TokenBox(VGroup): __init__, highlight, shake, pop_in, pop_out, fade_id, activate, deactivate, set_id, merge_with, split_into
+  class SpecialTokenBox(TokenBox): __init__, show_purpose, hide_purpose, show_tooltip, hide_tooltip
+  class TokenRow(VGroup): __init__, appear, disappear, highlight_token, activate_token, deactivate_token, wave_activate, show_all_ids, add_token, connection_arrows
+  class TokenSplitAnimation(VGroup): __init__, _char_x_positions, _build_split_lines, show_word, show_split_lines, separate_pieces, show_subword_boxes, play_full, full_sequence
+  class BPEStepDisplay(VGroup): __init__, show_before, highlight_pair, show_merge_arrow, show_after, play_full
+  class VocabTable(VGroup): __init__, _build, _make_row, appear, flash_row, lookup
+  class ContextWindowBar(VGroup): __init__, _make_slot, _build, appear, fill_slot, fill_up_to, fill_next, fill_all, show_usage_label, overflow_flash, show_position_numbers, truncate_to
+  class TokenIDMapping(VGroup): __init__, _build_from_row, _build_standalone, reveal, highlight_pair, flash_all, appear
+  class TokenizationDemoScene(Scene): construct
+  def make_token_sequence()
+  def wrap_text(t, _w)
+  def _token_color(index: int)
+  def midpoint(a, b)

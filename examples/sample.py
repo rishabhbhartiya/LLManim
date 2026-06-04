@@ -1,5 +1,5 @@
 import sys, os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "manim_transformer"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "llmanim"))
 from manim import *
 from base.shapes import MatrixBox, VectorBar, TokenBox
 from base.animations import highlight_sequence, data_flow_arrow
