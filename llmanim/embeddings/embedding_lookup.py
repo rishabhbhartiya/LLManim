@@ -41,7 +41,7 @@ from manim import (
     rate_functions,
     config,
 )
-from manim import Brace, DecimalNumber, Ellipsis as ManimEllipsis
+from manim import Brace, DecimalNumber
 
 import numpy as _np  # internal alias — Manim re-exports np, so we use _np directly
 

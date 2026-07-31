@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llmanim"
-version = "0.1.0"
+version = "0.1.2"
 description = "Reusable Manim components for creating LLM and Transformer explanation videos."
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -47,7 +47,7 @@ Changelog = "https://github.com/rishabhbhartiya/LLManim/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["manim_transformer*"]
+include = ["llmanim*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
