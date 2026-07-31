@@ -14,7 +14,6 @@ extensions = [
     'sphinx.ext.viewcode',
     'myst_parser',
 ]
-
 autosummary_generate = True
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
