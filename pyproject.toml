@@ -44,6 +44,7 @@ Homepage = "https://github.com/rishabhbhartiya/LLManim"
 Repository = "https://github.com/rishabhbhartiya/LLManim"
 "Bug Tracker" = "https://github.com/rishabhbhartiya/LLManim/issues"
 Changelog = "https://github.com/rishabhbhartiya/LLManim/blob/main/CHANGELOG.md"
+Documentation = "https://llmanim.readthedocs.io"
 
 [tool.setuptools.packages.find]
 where = ["."]

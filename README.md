@@ -6,7 +6,8 @@
 **Reusable Manim components for creating LLM and Transformer explanation videos.**
 
 [![PyPI version](https://img.shields.io/pypi/v/llmanim.svg)](https://pypi.org/project/llmanim/)
-[![Python](https://img.shields.io/pypi/pyversions/llmanim.svg)](https://pypi.org/project/llmanim/)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/llmanim?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/llmanim)
+[![Documentation Status](https://readthedocs.org/projects/llmanim/badge/?version=latest)](https://llmanim.readthedocs.io/en/latest/?badge=latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A Python library of pre-built visual components, animations, and utilities for creating educational videos about Large Language Models and Transformer architectures using [Manim](https://www.manim.community/).
